@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 //import org.springframework.samples.petclinic.model.BaseEntity;
 
-
+//falta el extends
 @Entity
 @Table(name = "visits")
 public class Visit  {
