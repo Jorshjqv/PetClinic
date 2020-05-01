@@ -1,11 +1,13 @@
-package com.ucenfotec.proyectocomponentes.controllers;
+package com.cenfotec.proyectocomponentes.controllers;
 
 import java.util.Map;
 
 import javax.validation.Valid;
 
-import com.ucenfotec.proyectocomponentes.repositories.*;
-import com.ucenfotec.proyectocomponentes.entities.*;
+import com.cenfotec.proyectocomponentes.entities.Pet;
+import com.cenfotec.proyectocomponentes.entities.Visit;
+import com.cenfotec.proyectocomponentes.repositories.PetRepository;
+import com.cenfotec.proyectocomponentes.repositories.VisitRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;

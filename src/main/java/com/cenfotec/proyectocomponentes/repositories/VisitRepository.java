@@ -1,6 +1,6 @@
-package com.ucenfotec.proyectocomponentes.repositories;
+package com.cenfotec.proyectocomponentes.repositories;
 
-import com.ucenfotec.proyectocomponentes.entities.*;
+import com.cenfotec.proyectocomponentes.entities.Visit;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
