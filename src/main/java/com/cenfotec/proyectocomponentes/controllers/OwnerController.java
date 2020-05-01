@@ -20,7 +20,10 @@ import com.cenfotec.proyectocomponentes.entities.*;
 import com.cenfotec.proyectocomponentes.repositories.OwnerRepository;
 import com.cenfotec.proyectocomponentes.repositories.VisitRepository;
 
+import lombok.Data;
+
 @Controller
+@Data
 public class OwnerController {
 	
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateForm";

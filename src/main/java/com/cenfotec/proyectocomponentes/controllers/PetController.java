@@ -21,11 +21,11 @@ import com.cenfotec.proyectocomponentes.entities.Pet;
 import com.cenfotec.proyectocomponentes.repositories.OwnerRepository;
 import com.cenfotec.proyectocomponentes.repositories.PetRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Controller
 @RequestMapping("/owners/{ownerId}")
-@AllArgsConstructor
+@Data
 public class PetController {
 	
 	private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
