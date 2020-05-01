@@ -11,26 +11,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
-<<<<<<< Updated upstream
 
-import com.cenfotec.proyectocomponentes.entities.Pet;
-=======
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.cenfotec.proyectocomponentes.entities.*;
 
+import com.cenfotec.proyectocomponentes.entities.*;
 import com.cenfotec.proyectocomponentes.repositories.OwnerRepository;
 import com.cenfotec.proyectocomponentes.repositories.VisitRepository;
->>>>>>> Stashed changes
 
 @Controller
 public class OwnerController {
 	
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateForm";
 	
-	private final`OwnerRepository owners;
+	private final OwnerRepository owners;
 	
     private VisitRepository visits;
     
