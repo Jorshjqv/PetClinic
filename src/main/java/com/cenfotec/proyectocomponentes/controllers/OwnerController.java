@@ -4,11 +4,14 @@ import java.security.acl.Owner;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cenfotec.proyectocomponentes.entities.*;
@@ -36,7 +39,7 @@ public class OwnerController {
     	Owner owner = new Owner();
     	model.put("owner", owner);
     	  
-    	return VIEWS_OWNNER_CREATE_OR_UPDATE_FORM;
+    	return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
     
     @PostMapping("/owners/new")
@@ -88,7 +91,7 @@ public class OwnerController {
     @PostMapping("/owners/{ownerId}/edit")
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable("ownerId") int ownerId) {
     	if(result.hasErrors()) {
-    		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM
+    		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     	}
     	else {
     		owner.setId(ownerId);
