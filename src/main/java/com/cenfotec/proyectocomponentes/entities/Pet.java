@@ -61,7 +61,7 @@ public class Pet extends NamedEntity{
 	}
 	
 	public void addVisit(Visit visit) {
-		getVisitsInternal().add(visit);
+		getVisitsInt().add(visit);
 		visit.setPetId(this.getId());
 	}
 }
