@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cenfotec.proyectocomponentes.entities.Owner;
 import com.cenfotec.proyectocomponentes.entities.Pet;
+import com.cenfotec.proyectocomponentes.entities.PetType;
+import com.cenfotec.proyectocomponentes.entities.PetValidator;
 import com.cenfotec.proyectocomponentes.repositories.OwnerRepository;
 import com.cenfotec.proyectocomponentes.repositories.PetRepository;
 
@@ -36,7 +38,7 @@ public class PetController {
 	
 	@ModelAttribute("types")
 	public Collection<PetType> populatePetTypes(){
-		return this.pets.findPetTypes();
+		return this.pets.findByPetTypes();
 	}
 	
 	@ModelAttribute("owner")
@@ -52,7 +54,7 @@ public class PetController {
 	
 	@InitBinder("pet")
 	public void initPetBinder(WebDataBinder dataBinder) {
-		dataBinder.setValidator(new PetValidator);
+		dataBinder.setValidator(new PetValidator());
 	}
 	
 	@GetMapping("/pets/new")
@@ -83,7 +85,7 @@ public class PetController {
 	}
 	
 	@GetMapping("pets/{petId}/edit")
-	public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner ower, ModelMap model) {
+	public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, ModelMap model) {
 		if(result.hasErrors()) {
 			pet.setOwner(owner);
 			model.put("pet", pet);
