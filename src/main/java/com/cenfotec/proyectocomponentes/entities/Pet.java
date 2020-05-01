@@ -57,7 +57,7 @@ public class Pet extends NamedEntity{
 		List<Visit> sorted = new ArrayList<>(getVisitsInt());
 		PropertyComparator.sort(sorted, new MutableSortDefinition("date", false, false));
 		
-		return Collections.unmodifiableList(sortedVisits);
+		return Collections.unmodifiableList(sorted);
 	}
 	
 	public void addVisit(Visit visit) {
