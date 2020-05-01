@@ -49,7 +49,7 @@ public class Pet extends NamedEntity{
 		return this.visits;
 	}
 	
-	protected void setVisitsInt(Collection<Visit> visits) {
+	public void setVisitsInt(Collection<Visit> visits) {
 		this.visits = new LinkedHashSet<>(visits);
 	}
 	

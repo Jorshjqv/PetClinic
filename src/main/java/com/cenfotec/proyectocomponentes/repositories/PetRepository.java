@@ -7,6 +7,7 @@ import org.springframework.data.repository.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cenfotec.proyectocomponentes.entities.Pet;
+import com.cenfotec.proyectocomponentes.entities.PetType;
 
 public interface PetRepository extends Repository<Pet, Integer>{
 	
