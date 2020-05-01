@@ -11,7 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 //falta el extends
 @Entity
 @Table(name = "visits")
-public class Visit  {
+public class Visit extends BaseEntity {
 
 	@Column(name = "visit_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
