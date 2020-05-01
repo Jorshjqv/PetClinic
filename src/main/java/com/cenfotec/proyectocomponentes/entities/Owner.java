@@ -2,9 +2,11 @@ package com.cenfotec.proyectocomponentes.entities;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,7 +20,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table("owners")
+@Table(name = "owners")
 public class Owner extends Person{
 	
 	@NotEmpty
@@ -30,7 +32,7 @@ public class Owner extends Person{
 	@Digits(fraction = 0, integer = 10)
 	private String telephone;
 	
-	@OneToMany<cascade = CascadeType.ALL, mappedBy = owner>
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private Set<Pet> pets;
 	
 	protected Set<Pet> getPetsInt(){
@@ -61,7 +63,7 @@ public class Owner extends Person{
 	}
 	
 	public Pet getPet(String name) {
-		return getName(name, false);
+		return getPet(name, false);
 	}
 	
 	public Pet getPet(String name, boolean ignoreNew) {

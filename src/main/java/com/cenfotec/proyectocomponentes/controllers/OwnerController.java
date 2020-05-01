@@ -1,10 +1,13 @@
 package com.cenfotec.proyectocomponentes.controllers;
 
-import java.security.acl.Owner;
+
 import java.util.Collection;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +15,16 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.cenfotec.proyectocomponentes.entities.*;
+
 import com.cenfotec.proyectocomponentes.repositories.OwnerRepository;
 import com.cenfotec.proyectocomponentes.repositories.VisitRepository;
 
+import lombok.Data;
+
 @Controller
+@Data
 public class OwnerController {
 	
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateForm";
@@ -35,7 +43,7 @@ public class OwnerController {
     	Owner owner = new Owner();
     	model.put("owner", owner);
     	  
-    	return VIEWS_OWNNER_CREATE_OR_UPDATE_FORM;
+    	return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
     
     @PostMapping("/owners/new")
@@ -51,14 +59,14 @@ public class OwnerController {
     
     @GetMapping("/owners/find")
     public String initFindForm(Map<String, Object> model) {
-    	model.put("owner", new Owner())
+    	model.put("owner", new Owner());
     	return "owner/findOwners";
     }
     
     @GetMapping("/owners")
     public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) {
     	if(owner.getLastName() == null) {
-    		owner.setLaCollection<E>;
+    		owner.setLastName("");
     	}
     	
     	Collection<Owner> results = this.owners.findByLastName(owner.getLastName());
@@ -87,7 +95,7 @@ public class OwnerController {
     @PostMapping("/owners/{ownerId}/edit")
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable("ownerId") int ownerId) {
     	if(result.hasErrors()) {
-    		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM
+    		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     	}
     	else {
     		owner.setId(ownerId);
@@ -101,7 +109,7 @@ public class OwnerController {
     	ModelAndView  mav =  new ModelAndView("owners/ownerDetails");
     	Owner owner = this.owners.findById(ownerId);
     	for(Pet pet: owner.getPets()) {
-    		pet.setVisits(visits.findByPetId(pet.getId()));
+    		pet.setVisitsInt(visits.findByPetId(pet.getId()));
     	}
     	
     	mav.addObject(owner);
