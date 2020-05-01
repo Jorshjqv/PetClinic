@@ -4,13 +4,26 @@ import java.security.acl.Owner;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+<<<<<<< Updated upstream
 
 import com.cenfotec.proyectocomponentes.entities.Pet;
+=======
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.cenfotec.proyectocomponentes.entities.*;
+
+import com.cenfotec.proyectocomponentes.repositories.OwnerRepository;
+import com.cenfotec.proyectocomponentes.repositories.VisitRepository;
+>>>>>>> Stashed changes
 
 @Controller
 public class OwnerController {
@@ -31,7 +44,7 @@ public class OwnerController {
     	Owner owner = new Owner();
     	model.put("owner", owner);
     	  
-    	return VIEWS_OWNNER_CREATE_OR_UPDATE_FORM;
+    	return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
     
     @PostMapping("/owners/new")
@@ -83,7 +96,7 @@ public class OwnerController {
     @PostMapping("/owners/{ownerId}/edit")
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable("ownerId") int ownerId) {
     	if(result.hasErrors()) {
-    		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM
+    		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     	}
     	else {
     		owner.setId(ownerId);
