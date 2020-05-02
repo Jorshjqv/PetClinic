@@ -1,4 +1,4 @@
-package com.ucenfotec.proyectocomponentes.PetClinic;
+package com.cenfotec.proyectocomponentes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
