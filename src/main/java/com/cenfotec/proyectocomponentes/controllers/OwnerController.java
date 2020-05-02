@@ -109,7 +109,7 @@ public class OwnerController {
     	ModelAndView  mav =  new ModelAndView("owners/ownerDetails");
     	Owner owner = this.owners.findById(ownerId);
     	for(Pet pet: owner.getPets()) {
-    		pet.setVisitsInt(visits.findByPetId(pet.getId()));
+    		pet.setVisitsInternal(visits.findByPetId(pet.getId()));
     	}
     	
     	mav.addObject(owner);

@@ -11,7 +11,7 @@ import com.cenfotec.proyectocomponentes.entities.PetType;
 
 public interface PetRepository extends Repository<Pet, Integer>{
 	
-	@Query("SELECT ptype FROM petType ORDER BY ptype.name")
+	@Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
 	@Transactional(readOnly = true)
 	List<PetType> findByPetTypes();
 	
